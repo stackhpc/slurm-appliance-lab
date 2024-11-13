@@ -1,0 +1,3 @@
+. venv/bin/activate
+. environments/$1/activate
+export ANSIBLE_VAULT_PASSWORD_FILE=$APPLIANCES_REPO_ROOT/vault-password
