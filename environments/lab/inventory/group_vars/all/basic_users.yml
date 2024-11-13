@@ -1,0 +1,6 @@
+testuser_password: "{{ lookup('file', appliances_environment_root + '/testuser-password' ) }}"
+
+basic_users_users:
+  - name: testuser # can't use rocky as $HOME isn't shared!
+    password: "{{ testuser_password | password_hash('sha512', 65534 | random(seed=inventory_hostname) | string) }}" # idempotent 
+    uid: 1005
